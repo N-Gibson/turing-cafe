@@ -7,8 +7,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      reservations: [],
-      newReservation: []
+      reservations: []
     }
   }
 
@@ -20,25 +19,35 @@ class App extends Component {
   }
 
   makeReservation = (newRes) => {
-    // const formattedRes = {
-    //   name: newRes.name,
-    //   date: newRes.date,
-    //   time: newRes.time,
-    //   number: parseInt(newRes.number)
-    // }
-    // const options = {
-    //   method: 'POST',
-    //   body: JSON.stringify(formattedRes),
-    //   headers: {
-    //     'Content-Type' : 'application/json'
-    //   }
-    // }
+    const formattedRes = {
+      name: newRes.name,
+      date: newRes.date,
+      time: newRes.time,
+      number: parseInt(newRes.number)
+    }
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(formattedRes),
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    }
 
-    // return fetch('http://localhost:3001/api/v1/reservations', options)
-    // .then(res => res.json())
-    // .then(data => this.setState({reservations: data}))
+    return fetch('http://localhost:3001/api/v1/reservations', options)
+    .then(res => res.json())
+    .then(data => this.setState({reservations : [...this.state.reservations, data]}))
+    .catch(err => console.error(err))
 
-    this.setState({reservations : [...this.state.reservations, newRes]})
+    // this.setState({reservations : [...this.state.reservations, newRes]})
+  }
+
+  deleteReservation = (id) => {
+    fetch(`http://localhost:3001/api/v1/reservations/${id}`, {
+      method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(data => this.setState({reservations : data}))
+    .catch(err => console.error(err))
   }
 
   render() {
@@ -50,7 +59,7 @@ class App extends Component {
         </div>
         <div className='resy-container'>
           {this.state.reservations.map(res => {
-            return <Card reservation={res} key={res.id}/>
+            return <Card reservation={res} deleteReservation={this.deleteReservation} key={res.id}/>
           })}
         </div>
       </div>

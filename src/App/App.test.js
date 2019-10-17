@@ -34,7 +34,6 @@ describe('App', () => {
     const mockRes =
           {
             date: "12/29",
-            id: "1",
             name: "Christie",
             number: "12",
             time: "7:00",
@@ -42,6 +41,6 @@ describe('App', () => {
 
     wrapper.instance().makeReservation(mockRes)
 
-   expect(wrapper.state('reservations')).toEqual([mockRes])
+    expect(wrapper.state('reservations')).toEqual([{ date: "12/29", id: 1, name: "Christie", number: "12", time: "7:00" }])
   })
 });

@@ -12,7 +12,9 @@ exports[`Form should match snapshot 1`] = `
   <p>
     Number of guests: 
   </p>
-  <button>
+  <button
+    onClick={[Function]}
+  >
     Cancel
   </button>
 </div>
