@@ -1,3 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Form should match snapshot 1`] = `undefined`;
+exports[`Form should match snapshot 1`] = `
+<div
+  className="card"
+>
+  <h2 />
+  <p />
+  <p>
+     pm
+  </p>
+  <p>
+    Number of guests: 
+  </p>
+  <button>
+    Cancel
+  </button>
+</div>
+`;
