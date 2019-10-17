@@ -3,7 +3,6 @@ import './Card.css';
 
 const Card = (reservation) => {
   const { name, date, time, id, number } = reservation.reservation;
-  console.log(reservation)
 
   return (
     <div className='card'>

@@ -5,7 +5,7 @@ import Card from './Card';
 describe('Form', () => {
   let wrapper, res;
   beforeEach(() => {
-    reservation = {
+    res = {
       reservation: {
         date: "12/29",
         id: "1",
