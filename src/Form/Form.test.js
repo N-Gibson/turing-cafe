@@ -28,7 +28,6 @@ describe('Form', () => {
   it('should make a reservation on click', () => {
     wrapper.find('button').simulate('click')
 
-    expect(makeRes.mock.calls.length).toEqual(1)
-    // expect(makeRes).toHaveBeenCalled()
+    expect(makeRes).toHaveBeenCalled()
   })
 })
