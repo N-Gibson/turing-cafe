@@ -17,3 +17,9 @@
   font-family: 'Pacifico', cursive;
   font-size: 50px;
 }
+
+.resy-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px;
+}
